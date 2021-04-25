@@ -50,7 +50,21 @@ body {
     margin-top: 20px;
     cursor: pointer;
     border-radius: 20px 0px 20px 0px;
-    transition: all ease 0.2s;
+}
+
+.button__ {
+    width: 90%;
+    background-color: #f7e600;
+    border: none;
+    color:#000;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    margin-top: 100px;
+    cursor: pointer;
+    border-radius: 20px 0px 20px 0px;
 }
 
 .quiz{
@@ -63,6 +77,19 @@ body {
     font-weight: lighter;
 	 font-size: 50px;
     vertical-align: middle
+}
+
+.result{
+    font-weight: bold;
+	 font-size: 100px;
+    vertical-align: middle
+}
+
+.desc_t{
+	 font-size: 60px;
+    background-color:#9A6137;
+    padding:15px;
+    color:#fff;
 }
 
 /* ----------------------------------------------

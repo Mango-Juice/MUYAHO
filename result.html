@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>나는 어떤 똥일까</title>
+    </head>
+    
+    <body>
+        <div class="centered">
+            <div class="idx">당신은....</div>
+            <div class="result" id = "res">로딩중</div>
+            <img src="image/7.png" style="width:60%; margin-top:30px; margin-bottom:80px;" id="img" border=3/>
+            <div class="desc_t" id = "title"></div>
+            <button class="button__" id = "kakao-link-btn"><img src="image/ka.png" style="height:60px;vertical-align: middle;margin-right:10px"/>친구들에게 공유하기</button>
+        </div>
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+        <script type="text/javascript">
+            var discribe = ["콩알만 한 ", "단단한 ", "얇고 긴 ", "묽디 묽은 ", "커다란 ", "기분 나쁜 ", "영롱한 "];
+            var type = ["토끼 똥","벽돌 똥","지렁이 똥","설사 똥","코끼리 똥","새 똥","무지개 똥"];
+            var titles = ["같이 있으면 즐거운 사람","굳세고 정직한 사람","언제나 배려하는 사람","친화력이 좋은 사람","언제나 믿음직한 사람","톡톡 튀는 매력의 소유자","4차원 매력의 소유자"];
+            var data = location.href.split("?")[1];
+            
+            var img = document.getElementById('img');
+            var res = document.getElementById('res');
+            var title = document.getElementById('title');
+
+            img.src = "image/" + data + ".png";
+            res.innerText = discribe[data] + type[data] + "💩";
+            title.innerText = titles[data];
+            
+            Kakao.init("42c8abac27a11dbc171a24113624f545");
+            Kakao.Link.createDefaultButton({
+                  container: '#kakao-link-btn',
+                  objectType: 'feed',
+                  content: {
+                    title: '나는야 ' + discribe[data] + type[data] + '이라네~🎵',
+                    description: '너도 무슨 💩인지 궁금하지 않니? 지금 바로 테스트해봐!',
+                    imageUrl:
+                      'https://raw.githubusercontent.com/Mango-Juice/MUYAHO/main/image/'+data+'.png',
+                    link: {
+                      mobileWebUrl: 'https://mango-juice.github.io/MUYAHO',
+                    },
+                  },
+                  buttons: [
+                    {
+                      title: '나도 테스트 해볼래!',
+                      link: {
+                        mobileWebUrl: 'https://mango-juice.github.io/MUYAHO',
+                      },
+                    },
+                  ]
+                });
+        </script>
+    </body>
+    
+</html>

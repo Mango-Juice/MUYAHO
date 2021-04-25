@@ -65,7 +65,7 @@ function quiz_next(target){
                 maximum = score[i];
             }
         }
-        location.href = "result.html?result="+result;
+        location.href = "result.html?"+result;
     }
     else{
         for(let i = 0; i < 7; i++) score[i] += scores[quiz][i] * target;
