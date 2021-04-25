@@ -3,10 +3,10 @@ var quiz_txts = ["엉덩이의 갯수는?",
                 "빨대 구멍의 갯수는?",
                 "다시 태어난다면?",
                 "용서할 수 없는 것은?",
-                "길에서 혼자 넘어졌는데 너무 아프다.",
+                "길에서 넘어졌는데 피나면",
                 "당신은 코딱지를 팔 때",
-                "용변 후 화장실에 휴지가 없을 때",
-                "당신이 가장 행복한 순간은?",
+                "화장실에 휴지가 없을 때",
+                "당신이 가장 행복한 때는?",
                 "3 x 4 = "];
 var yes_txts = ["당연히 1개지!", 
                "딱딱한게 최고지!",
@@ -23,7 +23,7 @@ var no_txts = ["당연히 2개지!",
               "당연히 2개지!",
               "불행한 사람이 되기",
               "뜨거운 콜라",
-              "너무 아파요! 도와주세요!",
+              "근처 약국에서 조치를 취하자.",
               "다른 사람의 손으로 판다.",
               "벽에 비빈다.",
               "똥 싼 후", 
@@ -48,31 +48,31 @@ var yes = document.getElementById('yes');
 var no = document.getElementById('no');
 
 yes.addEventListener('click', function(){
-    quiz_next(true);
+    quiz_next(1);
 })
 
 no.addEventListener('click', function(){
-    quiz_next(false);
+    quiz_next(-1);
 })
 
-function quiz_next(i){
+function quiz_next(target){
     if(quiz == 9){
         var result = 0;
         var maximum = -10;
         for(let i = 0; i < 7; i++){
             if(maximum < score[i]){
                 result = i;
-                maximum = score[i]
+                maximum = score[i];
             }
         }
         location.href = "result.html?result="+result;
     }
     else{
-        for(let i = 0; i < 7; i++) score[i] += scores[quiz][i]
-        quiz += 1
-        idx.innerText = (quiz + 1) + " / 10"
-        txt.innerText = quiz_txts[quiz]
-        yes.innerText = yes_txts[quiz]
-        no.innerText = no_txts[quiz]
+        for(let i = 0; i < 7; i++) score[i] += scores[quiz][i] * target;
+        quiz += 1;
+        idx.innerText = "( " + (quiz + 1) + " / 10 )";
+        txt.innerText = quiz_txts[quiz];
+        yes.innerText = yes_txts[quiz];
+        no.innerText = no_txts[quiz];
     }
 }
